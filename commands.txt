@@ -3,17 +3,17 @@ dotnet new webapi -n API -controllers
 dotnet sln add API
 dotnet run
 
-If there is a security warning in browser
+If there is a security warning in browser:
 dotnet dev-certs https --clean
 dotnet dev-certs https --trust
 
 dotnet tool list -g
 dotnet tool install --global dotnet-ef
 
-If specific version needed
+If specific version needed:
 dotnet tool install --global dotnet-ef --version 9.0.7
 
-If already exists then update
+If already exists then update:
 dotnet tool update -g dotnet-ef
 
 dotnet ef migrations add InitialCreate -o Data/Migrations
@@ -22,7 +22,30 @@ dotnet ef database update
 dotnet ef database drop
 dotnet watch
 
-Setting up git
+Setting up git:
 git init
 git config --global user.name "Contrazap"
 git config --global user.email "contrazap@gmail.com"
+
+
+Create react application:
+
+In root of the project
+npm create vite@latest
+
+Switch to the client app folder
+npm install
+npm run dev
+
+To enable https in client app in vite config require below package:
+npm i vite-plugin-mkcert -D
+
+If using Firefox browser certificates will not be accepted by default, enable below option in Firefox and restart it:
+security.enterprise_roots.enabled = true
+In powershell:
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+Installing mui v6:
+npm install @mui/material@6 @emotion/react @emotion/styled
+npm install @fontsource/roboto
+npm install @mui/icons-material@6
