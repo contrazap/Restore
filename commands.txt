@@ -45,7 +45,13 @@ security.enterprise_roots.enabled = true
 In powershell:
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
+If switched to Chrome and certificates are not working:
+Clean and trust certs from dotnet. Refer above for dotnet cert commands.
+
 Installing mui v6:
 npm install @mui/material@6 @emotion/react @emotion/styled
 npm install @fontsource/roboto
 npm install @mui/icons-material@6
+
+npm i @reduxjs/toolkit
+npm i react-redux

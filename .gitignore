@@ -485,3 +485,12 @@ $RECYCLE.BIN/
 API/appsettings.json
 API/store.db-shm
 API/store.db-wal
+# Private keys
+*.pem
+**/*.pem
+*.key
+**/*.key
+*.crt
+**/*.crt
+*.cer
+**/*.cer

@@ -6,7 +6,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import type { Product } from "../../product";
+import type { Product } from "../../app/models/product";
 import { Link } from "react-router-dom";
 
 type Props = {
