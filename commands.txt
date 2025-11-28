@@ -55,3 +55,14 @@ npm install @mui/icons-material@6
 
 npm i @reduxjs/toolkit
 npm i react-redux
+
+dotnet ef migrations add BasketEntityAdded
+
+If the migration created is not satisfactory and adjustments required, it can be removed if it is not already applied to database:
+dotnet ef migrations remove
+
+After making necessary changes to models, add the migration again:
+dotnet ef migrations add BasketEntityAdded
+
+Start the application to apply migrations:
+dotnet watch
