@@ -1,4 +1,4 @@
-import { DarkMode, LightMode, ShoppingCart } from "@mui/icons-material";
+import { DarkMode, LightMode, ShoppingCart } from '@mui/icons-material';
 import {
   AppBar,
   Badge,
@@ -10,31 +10,31 @@ import {
   Toolbar,
   Tooltip,
   Typography,
-} from "@mui/material";
-import { NavLink } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../store/store";
-import { toggleDarkMode } from "./uiSlice";
+} from '@mui/material';
+import { Link, NavLink } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../store/store';
+import { toggleDarkMode } from './uiSlice';
 
 const midLinks = [
-  { title: "catalog", path: "/catalog" },
-  { title: "about", path: "/about" },
-  { title: "contact", path: "/contact" },
+  { title: 'catalog', path: '/catalog' },
+  { title: 'about', path: '/about' },
+  { title: 'contact', path: '/contact' },
 ];
 
 const rightLinks = [
-  { title: "login", path: "/login" },
-  { title: "register", path: "/register" },
+  { title: 'login', path: '/login' },
+  { title: 'register', path: '/register' },
 ];
 
 const navStyles = {
-  color: "inherit",
-  typography: "h6",
-  textDecoration: "none",
-  "&:hover": {
-    color: "grey.500",
+  color: 'inherit',
+  typography: 'h6',
+  textDecoration: 'none',
+  '&:hover': {
+    color: 'grey.500',
   },
-  "&.active": {
-    color: "#baecf9",
+  '&.active': {
+    color: '#baecf9',
   },
 };
 
@@ -51,9 +51,9 @@ export default function NavBar() {
     <AppBar position="fixed">
       <Toolbar
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
         <Box display="flex" alignItems="center">
@@ -61,15 +61,15 @@ export default function NavBar() {
             RE-STORE
           </Typography>
           <Tooltip
-            title={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             <IconButton onClick={handleDarkMode}>
-              {darkMode ? <DarkMode /> : <LightMode sx={{ color: "yellow" }} />}
+              {darkMode ? <DarkMode /> : <LightMode sx={{ color: 'yellow' }} />}
             </IconButton>
           </Tooltip>
         </Box>
 
-        <List sx={{ display: "flex" }}>
+        <List sx={{ display: 'flex' }}>
           {midLinks.map(({ title, path }) => (
             <ListItem key={path} component={NavLink} to={path} sx={navStyles}>
               {title.toUpperCase()}
@@ -78,13 +78,18 @@ export default function NavBar() {
         </List>
 
         <Box display="flex" alignItems="center">
-          <IconButton size="large" sx={{ color: "inherit" }}>
+          <IconButton
+            component={Link}
+            to="/basket"
+            size="large"
+            sx={{ color: 'inherit' }}
+          >
             <Badge badgeContent="4" color="secondary">
               <ShoppingCart />
             </Badge>
           </IconButton>
 
-          <List sx={{ display: "flex" }}>
+          <List sx={{ display: 'flex' }}>
             {rightLinks.map(({ title, path }) => (
               <ListItem key={path} component={NavLink} to={path} sx={navStyles}>
                 {title.toUpperCase()}
@@ -94,7 +99,7 @@ export default function NavBar() {
         </Box>
       </Toolbar>
       {isLoading && (
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: '100%' }}>
           <LinearProgress color="secondary" />
         </Box>
       )}
